@@ -9,25 +9,16 @@ app.controller('myController', function($scope) {
   $scope.view.addPost = function() {
     $scope.view.newPost.date = moment().calendar();
     $scope.view.newPost.comments = [];
+    $scope.view.newPost.newComment = {};
     $scope.view.newPost.votes = 0;
+    $scope.view.newPost.addComment = function() {
+      this.comments.unshift(this.newComment);
+      this.newComment = {};
+    }
     $scope.view.posts.unshift($scope.view.newPost);
     $scope.view.newPost = {};
     $scope.view.addingPost = false;
   };
-  $scope.view.viewingComments = false;
-  $scope.view.addingComment = false;
-  $scope.view.newComment = {};
-  $scope.view.addComment = function(postTitle) {
-    var posts = $scope.view.posts;
-
-    for (i = 0; i < posts.length; i++) {
-      if (posts[i].title == postTitle) {
-        posts[i].comments.unshift($scope.view.newComment);
-        posts[i].addingComment = false;
-      }
-    }
-    $scope.view.newComment = {};
-  }
   $scope.view.posts = [
     {
       title: 'Syriana',
@@ -42,7 +33,11 @@ app.controller('myController', function($scope) {
       ],
       addingComment: false,
       viewingComments: false,
-      votes: 2
+      votes: 2,
+      addComment: function() {
+        this.comments.unshift(this.newComment);
+        this.newComment = {};
+      }
     },
     {
       title: 'The Bourne Identity',
@@ -53,7 +48,11 @@ app.controller('myController', function($scope) {
       comments: [{author: 'Jim', comment: 'Classic'}],
       addingComment: false,
       viewingComments: false,
-      votes: -1
+      votes: -1,
+      addComment: function() {
+        this.comments.unshift(this.newComment);
+        this.newComment = {};
+      }
     },
     {
       title: 'Anchorman',
@@ -64,7 +63,11 @@ app.controller('myController', function($scope) {
       comments: [{author: 'Kate', comment: 'Very funny'}, {author: 'Jenny', comment: 'Excellent Acting'}],
       addingComment: false,
       viewingComments: false,
-      votes: 5
+      votes: 5,
+      addComment: function() {
+        this.comments.unshift(this.newComment);
+        this.newComment = {};
+      }
     }
   ];
 });

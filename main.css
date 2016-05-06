@@ -23,6 +23,7 @@ a:hover, a:visited, .linkish {
 
 .info-div {
   display: inline-block;
+  min-width: 100%;
 }
 
 .img-div {
