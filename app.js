@@ -14,6 +14,7 @@ app.controller('myController', function($scope) {
     $scope.view.newPost.addComment = function() {
       this.comments.unshift(this.newComment);
       this.newComment = {};
+      this.addingComment = false;
     }
     $scope.view.posts.unshift($scope.view.newPost);
     $scope.view.newPost = {};
@@ -37,6 +38,7 @@ app.controller('myController', function($scope) {
       addComment: function() {
         this.comments.unshift(this.newComment);
         this.newComment = {};
+        this.addingComment = false;
       }
     },
     {
@@ -52,6 +54,7 @@ app.controller('myController', function($scope) {
       addComment: function() {
         this.comments.unshift(this.newComment);
         this.newComment = {};
+        this.addingComment = false;
       }
     },
     {
@@ -67,6 +70,7 @@ app.controller('myController', function($scope) {
       addComment: function() {
         this.comments.unshift(this.newComment);
         this.newComment = {};
+        this.addingComment = false;
       }
     }
   ];
