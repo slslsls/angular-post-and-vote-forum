@@ -26,7 +26,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li ng-click="view.sortAttr = '-votes'"><a>Votes</a></li>
-            <li ng-click="view.sortAttr = 'date'"><a>Date</a></li>
+            <li ng-click="view.sortAttr = '-date'"><a>Date</a></li>
             <li ng-click="view.sortAttr = 'title'"><a>Title</a></li>
           </ul>
         </li>
@@ -77,11 +77,11 @@
           <span class="glyphicon glyphicon-calendar"></span> {{post.date}}&nbsp;&nbsp;|&nbsp;
           <span class="linkish" ng-click="post.viewingComments = !post.viewingComments">
             <span class="glyphicon glyphicon-comment"></span>&nbsp;
-            <ng-pluralize count="{{post.comments.length}}"
+            <ng-pluralize count="post.comments.length"
               when="{
                 '0': 'No comments',
-                'one': '{{post.comments.length}} comment',
-                'other': '{{post.comments.length}} comments'}">
+                'one': '{} comment',
+                'other': '{} comments'}">
             </ng-pluralize>
           </span>&nbsp;|&nbsp;
           <span class="linkish" ng-click="post.addingComment = !post.addingComment">
