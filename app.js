@@ -2,6 +2,7 @@ var app = angular.module('myApp', []);
 
 app.controller('myController', function($scope) {
   $scope.view = {};
+  $scope.view.searchKeyword = '';
   $scope.view.addingPost = false;
   $scope.view.newPost = {};
   $scope.view.addPost = function() {

@@ -12,9 +12,14 @@
   <body ng-controller="myController">
     <nav class='navbar navbar-default'>
       <a class="navbar-brand" href="#">Reddit Clone</a>
-      <a class="navbar-text" ng-click="view.addingPost = true">
-        + Submit Post
+      <a class="navbar-text" ng-click="view.addingPost = !view.addingPost">
+        <span class="glyphicon glyphicon-plus"></span> Submit Post
       </a>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="view.searchKeyword">
+        </div>
+      </form>
     </nav>
     <div class="new-post" ng-show="view.addingPost">
       <form name="postForm" ng-submit="view.addPost(postForm.$valid)">
@@ -41,7 +46,7 @@
         <input class="btn btn-primary" type="submit" value="Submit Post">
       </form>
     </div>
-    <div class="post-div" ng-model="view.posts" ng-repeat="post in view.posts | orderBy:'-votes'">
+    <div class="post-div" ng-model="view.posts" ng-repeat="post in view.posts | orderBy:'-votes' | filter: view.searchKeyword">
       <div class="img-div">
         <img src={{post.image}} alt="movie poster" />
       </div>
@@ -57,16 +62,19 @@
           {{post.description}}
         </p>
         <p>
-          {{post.date}} |
+          <span class="glyphicon glyphicon-calendar"></span> {{post.date}}&nbsp;&nbsp;|&nbsp;
           <span class="comments" ng-click="view.viewingComments = !view.viewingComments" >
+            <span class="glyphicon glyphicon-comment"></span>&nbsp;
             <ng-pluralize count="{{post.comments.length}}"
               when="{
                 '0': 'No comments',
                 'one': '{{post.comments.length}} comment',
                 'other': '{{post.comments.length}} comments'}">
             </ng-pluralize>
-          </span> |
-          <span class="comments" ng-click="view.addingComment = !view.addingComment">Add comment</span>
+          </span>&nbsp;|&nbsp;
+          <span class="comments" ng-click="view.addingComment = !view.addingComment">
+            <span class="glyphicon glyphicon-pencil"></span> Add comment
+          </span>
         </p>
         <div ng-show="view.viewingComments === true">
           <ul>
