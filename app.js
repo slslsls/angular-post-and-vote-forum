@@ -22,11 +22,11 @@ app.controller('myController', function($scope) {
 
     for (i = 0; i < posts.length; i++) {
       if (posts[i].title == postTitle) {
-        post[i].comments.unshift($scope.view.newComment)
+        posts[i].comments.unshift($scope.view.newComment);
+        posts[i].addingComment = false;
       }
     }
     $scope.view.newComment = {};
-    $scope.view.addingComment = false;
   }
   $scope.view.posts = [
     {
@@ -40,6 +40,8 @@ app.controller('myController', function($scope) {
         {author: 'George', comment: 'Great movie'},
         {author: 'Jane', comment: 'It was okay'}
       ],
+      addingComment: false,
+      viewingComments: false,
       votes: 2
     },
     {
@@ -49,6 +51,8 @@ app.controller('myController', function($scope) {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
       date: moment().subtract(4, 'days').subtract(1, 'hours').calendar(),
       comments: [{author: 'Jim', comment: 'Classic'}],
+      addingComment: false,
+      viewingComments: false,
       votes: -1
     },
     {
@@ -58,6 +62,8 @@ app.controller('myController', function($scope) {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
       date: moment().subtract(1, 'days').subtract(2, 'hours').calendar(),
       comments: [{author: 'Kate', comment: 'Very funny'}, {author: 'Jenny', comment: 'Excellent Acting'}],
+      addingComment: false,
+      viewingComments: false,
       votes: 5
     }
   ];

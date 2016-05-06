@@ -25,9 +25,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li class="linkish" ng-click="view.sortAttr = '-votes'"><a>Votes</a></li>
-            <li class="linkish" ng-click="view.sortAttr = 'date'"><a>Date</a></li>
-            <li class="linkish" ng-click="view.sortAttr = 'title'"><a>Title</a></li>
+            <li ng-click="view.sortAttr = '-votes'"><a>Votes</a></li>
+            <li ng-click="view.sortAttr = 'date'"><a>Date</a></li>
+            <li ng-click="view.sortAttr = 'title'"><a>Title</a></li>
           </ul>
         </li>
       </ul>
@@ -75,7 +75,7 @@
         </p>
         <p class="text-brown">
           <span class="glyphicon glyphicon-calendar"></span> {{post.date}}&nbsp;&nbsp;|&nbsp;
-          <span class="linkish" ng-click="view.viewingComments = !view.viewingComments" >
+          <span class="linkish" ng-click="post.viewingComments = !post.viewingComments">
             <span class="glyphicon glyphicon-comment"></span>&nbsp;
             <ng-pluralize count="{{post.comments.length}}"
               when="{
@@ -84,19 +84,19 @@
                 'other': '{{post.comments.length}} comments'}">
             </ng-pluralize>
           </span>&nbsp;|&nbsp;
-          <span class="linkish" ng-click="view.addingComment = !view.addingComment">
+          <span class="linkish" ng-click="post.addingComment = !post.addingComment">
             <span class="glyphicon glyphicon-pencil"></span> Add comment
           </span>
         </p>
-        <div ng-show="view.viewingComments === true">
+        <div ng-show="post.viewingComments === true">
           <ul>
             <li ng-repeat="comment in post.comments">
               <strong>{{comment.author}}:</strong> {{comment.comment}}
             </li>
           </ul>
         </div>
-        <div ng-show="view.addingComment === true">
-          <form name="commentForm" ng-submit="addComment(post.title)">
+        <div ng-show="post.addingComment === true">
+          <form name="commentForm" ng-submit="view.addComment(post.title)">
             <div class="form-group comment-input">
               <input class="form-control" type="text" ng-model="view.newComment.author" name="author" placeholder="Author" ng-required="true">
             </div>
