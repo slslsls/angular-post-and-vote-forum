@@ -3,6 +3,7 @@ var app = angular.module('myApp', []);
 app.controller('myController', function($scope) {
   $scope.view = {};
   $scope.view.searchKeyword = '';
+  $scope.view.sortAttr = '-votes';
   $scope.view.addingPost = false;
   $scope.view.newPost = {};
   $scope.view.addPost = function() {
@@ -42,7 +43,7 @@ app.controller('myController', function($scope) {
       votes: 2
     },
     {
-      title: 'Bourne Identity',
+      title: 'The Bourne Identity',
       author: 'Matt Damon',
       image: 'http://ecx.images-amazon.com/images/I/51HFMGJXMTL.jpg',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',

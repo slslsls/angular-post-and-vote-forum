@@ -20,6 +20,18 @@
           <input type="text" class="form-control" placeholder="Search" ng-model="view.searchKeyword">
         </div>
       </form>
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="linkish" ng-click="view.sortAttr = '-votes'"><a>Votes</a></li>
+            <li class="linkish" ng-click="view.sortAttr = 'date'"><a>Date</a></li>
+            <li class="linkish" ng-click="view.sortAttr = 'title'"><a>Title</a></li>
+          </ul>
+        </li>
+      </ul>
+
     </nav>
     <div class="new-post" ng-show="view.addingPost">
       <form name="postForm" ng-submit="view.addPost(postForm.$valid)">
@@ -46,7 +58,7 @@
         <input class="btn btn-primary" type="submit" value="Submit Post">
       </form>
     </div>
-    <div class="post-div" ng-model="view.posts" ng-repeat="post in view.posts | orderBy:'-votes' | filter: view.searchKeyword">
+    <div class="post-div" ng-model="view.posts" ng-repeat="post in view.posts | orderBy: view.sortAttr | filter: view.searchKeyword">
       <div class="img-div">
         <img src={{post.image}} alt="movie poster" />
       </div>
@@ -63,7 +75,7 @@
         </p>
         <p>
           <span class="glyphicon glyphicon-calendar"></span> {{post.date}}&nbsp;&nbsp;|&nbsp;
-          <span class="comments" ng-click="view.viewingComments = !view.viewingComments" >
+          <span class="linkish" ng-click="view.viewingComments = !view.viewingComments" >
             <span class="glyphicon glyphicon-comment"></span>&nbsp;
             <ng-pluralize count="{{post.comments.length}}"
               when="{
@@ -72,14 +84,14 @@
                 'other': '{{post.comments.length}} comments'}">
             </ng-pluralize>
           </span>&nbsp;|&nbsp;
-          <span class="comments" ng-click="view.addingComment = !view.addingComment">
+          <span class="linkish" ng-click="view.addingComment = !view.addingComment">
             <span class="glyphicon glyphicon-pencil"></span> Add comment
           </span>
         </p>
         <div ng-show="view.viewingComments === true">
           <ul>
             <li ng-repeat="comment in post.comments">
-              <strong>{{comment.author}}</strong> {{comment.comment}}
+              <strong>{{comment.author}}:</strong> {{comment.comment}}
             </li>
           </ul>
         </div>

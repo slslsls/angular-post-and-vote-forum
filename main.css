@@ -7,7 +7,7 @@ li {
   list-style-type: none;
 }
 
-a:hover, a:visited, .comments {
+a:hover, a:visited, .linkish {
   text-decoration: none;
   cursor: pointer;
 }
