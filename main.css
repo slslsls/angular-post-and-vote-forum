@@ -52,3 +52,35 @@ a:hover, a:visited, .linkish {
   width: 30%;
   display: inline-block;
 }
+
+.text-green {
+  color: #558a86;
+}
+
+.bg-green {
+  background-color: #558a86;
+}
+
+.text-brown {
+  color: #a63e14;
+}
+
+.bg-brown {
+  background-color: #a63e14;
+}
+
+.text-grey {
+  color: #bfbabe;
+}
+
+.bg-grey {
+  background-color: #bfbabe;
+}
+
+.text-white {
+  color: #f1f2f0;
+}
+
+.bg-white {
+  background-color: #f1f2f0;
+}

@@ -9,8 +9,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="main.css"/>
   </head>
-  <body ng-controller="myController">
-    <nav class='navbar navbar-default'>
+  <body class="bg-green" ng-controller="myController">
+    <nav class="bg-brown text-white navbar navbar-default">
       <a class="navbar-brand" href="#">Reddit Clone</a>
       <a class="navbar-text" ng-click="view.addingPost = !view.addingPost">
         <span class="glyphicon glyphicon-plus"></span> Submit Post
@@ -69,11 +69,11 @@
           <span ng-class="{positive: post.votes > 0, negative: post.votes < 0}">{{post.votes}}</span>
 
         </h3>
-        <h5>by {{post.author}}</h5>
+        <h5 class="text-grey">by {{post.author}}</h5>
         <p>
           {{post.description}}
         </p>
-        <p>
+        <p class="text-brown">
           <span class="glyphicon glyphicon-calendar"></span> {{post.date}}&nbsp;&nbsp;|&nbsp;
           <span class="linkish" ng-click="view.viewingComments = !view.viewingComments" >
             <span class="glyphicon glyphicon-comment"></span>&nbsp;
