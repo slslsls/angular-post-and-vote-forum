@@ -1,0 +1,53 @@
+img {
+  max-width: 10vw;
+}
+
+li {
+  list-style: none;
+  list-style-type: none;
+}
+
+a:hover, a:visited, .comments {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.post-div {
+  height: 300px;
+  background-color: lightgrey;
+  margin: 3vw;
+  padding: 2vw;
+  border-radius: 3px;
+}
+
+.img-div {
+  display: inline-block;
+  float: left;
+}
+
+.info-div {
+  width: 85%;
+  display: inline-block;
+  float: right;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+.vote:hover {
+  cursor: pointer;
+}
+
+.new-post {
+  margin: 3vw;
+}
+
+.comment-input {
+  width: 30%;
+  display: inline-block;
+}
